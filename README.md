@@ -6,11 +6,11 @@ PHP](http://geocoder-php.org/Geocoder/) library. It's meant as a compliment for
 client-side geocoding applications.
 
 [![Build
-Status](https://travis-ci.org/geocoder-php/geocoder-js.png?branch=master)](https://travis-ci.org/geocoder-php/geocoder-js)
+Status](https://api.travis-ci.org/Asisyas/geocoder-js.svg?branch=master)](https://travis-ci.org/geocoder-php/geocoder-js)
 
-[![Dependency Status](https://david-dm.org/geocoder-php/geocoder-js.png)](https://david-dm.org/geocoder-php/geocoder-js)
+[![Dependency Status](https://david-dm.org/asisyas/geocoder-js.svg)](https://david-dm.org/geocoder-php/geocoder-js)
 
-[![devDependency Status](https://david-dm.org/geocoder-php/geocoder-js/dev-status.png)](https://david-dm.org/geocoder-php/geocoder-js#info=devDependencies)
+[![devDependency Status](https://david-dm.org/asisyas/geocoder-js/dev-status.png)](https://david-dm.org/asisyas/geocoder-js#info=devDependencies)
 
 Building
 --------
