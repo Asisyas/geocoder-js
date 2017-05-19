@@ -72,9 +72,10 @@ if (typeof GeocoderJS === "undefined" && typeof require === "function") {
   };
 
   GeocoderJS.YandexProvider.prototype.mapToGeocoded = function(result) {
-    var geocoded = new GeocoderJS.Geocoded(),
-        component, point, addressMetaData,
-        addressComponents, i, tmpKind, tmpName, bounds;
+    var point, addressMetaData,
+        addressComponents, bounds,
+        geocoded = new GeocoderJS.Geocoded()
+    ;
 
     point = result.Point.pos.split(' ');
     geocoded.latitude = point[1] * 1;
@@ -96,42 +97,46 @@ if (typeof GeocoderJS === "undefined" && typeof require === "function") {
         geocoded.country_code = addressMetaData.AddressDetails.Country.CountryNameCode;
     }
 
-    for (i in addressComponents) {
-      if(!addressComponents.hasOwnProperty(i)) {
-        continue;
-      }
-
-      component = addressComponents[i];
-      tmpKind = component.kind;
-      tmpName = component.name;
-      switch (tmpKind) {
-        case 'country':
-          geocoded.countryName = tmpName;
-          break;
-        case 'locality':
-          geocoded.city = tmpName;
-          break;
-        case 'province':
-          geocoded.region = tmpName;
-          break;
-        case 'area':
-          geocoded.region_area = tmpName;
-          break;
-        case 'street':
-          geocoded.streetName = tmpName;
-          break;
-        case 'house':
-          geocoded.streetNumber = tmpName;
-          break;
-        default:
-          geocoded.other[tmpKind] = tmpName;
-      }
-    }
-
-    console.log(geocoded);
+    resolveAddressComponents(geocoded, addressComponents);
 
     return geocoded;
   };
+
+  function resolveAddressComponents(geocoded, addressComponents) {
+    var i, component, tmpKind, tmpName;
+
+      for (i in addressComponents) {
+          if(!addressComponents.hasOwnProperty(i)) {
+              continue;
+          }
+
+          component = addressComponents[i];
+          tmpKind = component.kind;
+          tmpName = component.name;
+          switch (tmpKind) {
+              case 'country':
+                  geocoded.countryName = tmpName;
+                  break;
+              case 'locality':
+                  geocoded.city = tmpName;
+                  break;
+              case 'province':
+                  geocoded.region = tmpName;
+                  break;
+              case 'area':
+                  geocoded.region_area = tmpName;
+                  break;
+              case 'street':
+                  geocoded.streetName = tmpName;
+                  break;
+              case 'house':
+                  geocoded.streetNumber = tmpName;
+                  break;
+              default:
+                  geocoded.other[tmpKind] = tmpName;
+          }
+      }
+  }
 
   function parseBounds(boundary) {
     var boundedTypes = ['Envelope'],

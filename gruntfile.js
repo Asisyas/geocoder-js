@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         specs: ['spec/*.js', 'spec/providers/*.js'],
         helpers : 'spec/helpers/*.js',
         keepRunner: true,
-        outfile: 'spec/runner.html',
+        outfile: 'spec/runner.html'
       }
     },
     jshint: {
