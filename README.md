@@ -12,6 +12,25 @@ Status](https://api.travis-ci.org/Asisyas/geocoder-js.svg?branch=master)](https:
 
 [![devDependency Status](https://david-dm.org/asisyas/geocoder-js/dev-status.png)](https://david-dm.org/asisyas/geocoder-js#info=devDependencies)
 
+Installing
+--------
+
+Install via npm.
+
+```bash
+$ npm install geocoder-js
+```
+
+or
+
+Install via git clone
+
+```bash
+$ git clone https://github.com/asisyas/geocoder-js.git
+$ cd geocoder-js
+$ npm install
+```
+
 Building
 --------
 
