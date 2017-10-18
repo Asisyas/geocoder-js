@@ -308,6 +308,10 @@ if (function(e) {
 
           case "postal_code":
             r.postal_code = t.address_components[n].long_name;
+            break;
+
+          case "country":
+            r.country_code = t.address_components[n].short_name, r.countryName = t.address_components[n].long_name;
         }
         return r;
     };

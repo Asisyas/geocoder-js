@@ -106,6 +106,10 @@ if (typeof GeocoderJS === "undefined" && typeof require === "function") {
           case "postal_code":
             geocoded.postal_code = result.address_components[i].long_name;
             break;
+          case 'country':
+            geocoded.country_code = result.address_components[i].short_name;
+            geocoded.countryName = result.address_components[i].long_name;
+            break;
         }
       }
     }

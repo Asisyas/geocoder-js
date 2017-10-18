@@ -1,6 +1,6 @@
 {
   "name": "geocoder-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-complexity": "^1.1.0",
