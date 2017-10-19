@@ -9,6 +9,8 @@ if (typeof GeocoderJS === "undefined" && typeof require === "function") {
 
   var useSSL;
   var apiKey;
+  var user_region;
+  var language;
 
   GeocoderJS.GoogleAPIProvider = function(_externalLoader, options) {
     if (_externalLoader === undefined) {
@@ -20,6 +22,8 @@ if (typeof GeocoderJS === "undefined" && typeof require === "function") {
 
     useSSL = (options.useSSL) ? options.useSSL : false;
     apiKey = (options.apiKey) ? options.apiKey : null;
+    user_region = options.region ? options.region : null;
+    language = options.lang ? options.lang : (user_region ? user_region : '');
 
     if (apiKey) {
       useSSL = true;
@@ -45,6 +49,14 @@ if (typeof GeocoderJS === "undefined" && typeof require === "function") {
       options["key"] = apiKey;
     }
 
+    if(language) {
+        options['lang'] = language;
+    }
+
+    if(user_region) {
+        options['region'] = user_region;
+    }
+
     this.executeRequest(options, callback);
   };
 
@@ -59,6 +71,14 @@ if (typeof GeocoderJS === "undefined" && typeof require === "function") {
       "sensor": false,
       "latlng": latitude + "," + longitude
     };
+
+    if(language) {
+        options['language'] = language;
+    }
+
+    if(user_region) {
+      options['region'] = user_region;
+    }
 
     if (apiKey) {
       options["key"] = apiKey;
